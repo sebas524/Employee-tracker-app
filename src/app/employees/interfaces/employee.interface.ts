@@ -1,5 +1,6 @@
 export interface Employee {
-  name: string;
+  fName: string;
+  lName: string;
   email: string;
   phone: number;
   startDate: Date;

@@ -1,4 +1,12 @@
-<h1>employee-list works!</h1>
+<div class="mx-auto max-w-7xl p-6 grid md:grid-cols-2 gap-4">
+  <div class="text-center md:text-left"><h2>Employee List</h2></div>
+  <div class="text-center md:text-right">
+    <button mat-raised-button color="warn" routerLink="/employees/new">
+      New Entry
+    </button>
+  </div>
+</div>
+
 <div class="mx-auto max-w-7xl p-6">
   <mat-form-field class="w-full">
     <mat-label>Filter</mat-label>
@@ -12,27 +20,72 @@
 
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
     <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <th mat-header-cell *matHeaderCellDef>No.</th>
-      <td mat-cell *matCellDef="let element">{{ element.position }}</td>
+    <ng-container matColumnDef="fName">
+      <th mat-header-cell *matHeaderCellDef>First Name</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.fName | titlecase }}
+      </td>
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    <ng-container matColumnDef="lName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Name</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.lName | titlecase }}
+      </td>
     </ng-container>
 
     <!-- Weight Column -->
-    <ng-container matColumnDef="weight">
-      <th mat-header-cell *matHeaderCellDef>Weight</th>
-      <td mat-cell *matCellDef="let element">{{ element.weight }}</td>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.email }}
+      </td>
     </ng-container>
 
     <!-- Symbol Column -->
-    <ng-container matColumnDef="symbol">
-      <th mat-header-cell *matHeaderCellDef>Symbol</th>
-      <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef>Phone</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.phone }}
+      </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="startDate">
+      <th mat-header-cell *matHeaderCellDef>Start Date</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.startDate | date : "dd/MM/yyyy" }}
+      </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="sex">
+      <th mat-header-cell *matHeaderCellDef>Sex</th>
+      <td mat-cell *matCellDef="let element">{{ element.sex | titlecase }}</td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="maritalStatus">
+      <th mat-header-cell *matHeaderCellDef>Marital Status</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.maritalStatus | titlecase }}
+      </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Action</th>
+      <td mat-cell *matCellDef="let element; let i = index">
+        <a
+          class="cursor-pointer mx-1 text-blue-500"
+          routerLink="/employees/edit/{{ i }}"
+          ><mat-icon>edit</mat-icon></a
+        >
+        <a class="cursor-pointer mx-1 text-red-500" (click)="deleteEntry(i)"
+          ><mat-icon>close</mat-icon></a
+        >
+      </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

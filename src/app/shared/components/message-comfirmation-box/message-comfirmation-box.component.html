@@ -1,1 +1,8 @@
-<p>message-comfirmation-box works!</p>
+<h1 mat-dialog-title class="text-center">Confirm Deletion</h1>
+<div mat-dialog-content class="text-center">
+  <p>{{ message }}</p>
+</div>
+<div mat-dialog-actions class="x">
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="btn" cdkFocusInitial>Proceed</button>
+</div>

@@ -10,13 +10,17 @@ const routes: Routes = [
     component: EmployeesMainLayoutComponent,
     children: [
       {
-        path: 'list',
-        component: EmployeeListComponent,
+        path: 'new',
+        component: EmployeeEditComponent,
       },
 
       {
         path: 'edit/:id',
         component: EmployeeEditComponent,
+      },
+      {
+        path: 'list',
+        component: EmployeeListComponent,
       },
 
       {

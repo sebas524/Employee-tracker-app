@@ -6,6 +6,8 @@ import { MaterialModule } from '../material/material.module';
 import { EmployeeListComponent } from './pages/employee-list/employee-list.component';
 import { EmployeeEditComponent } from './pages/employee-edit/employee-edit.component';
 import { EmployeesMainLayoutComponent } from './layout/employees-main-layout/employees-main-layout.component';
+import { SharedModule } from '../shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,12 @@ import { EmployeesMainLayoutComponent } from './layout/employees-main-layout/emp
     EmployeeEditComponent,
     EmployeesMainLayoutComponent,
   ],
-  imports: [CommonModule, EmployeesRoutingModule, MaterialModule],
+  imports: [
+    CommonModule,
+    EmployeesRoutingModule,
+    MaterialModule,
+    SharedModule,
+    ReactiveFormsModule,
+  ],
 })
 export class EmployeesModule {}

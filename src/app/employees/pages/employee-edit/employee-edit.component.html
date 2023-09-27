@@ -1,1 +1,189 @@
-<p>employee-edit works!</p>
+<div class="mx-auto max-w-7xl p-6">
+  <h1 class="text-left md:text-center">{{ titleAction }} Employee</h1>
+  <hr />
+  <div class="grid md:grid-cols-2 gap-7 my-8">
+    <div>
+      <img
+        src="../../../../assets/undraw_online_cv_re_gn0a.svg"
+        alt="employee svg"
+        class="avatar"
+      />
+    </div>
+    <div>
+      <form
+        action=""
+        class="bg-slate-50 shadow-md rounded-lg pt-8 pb-1 px-5"
+        autocomplete="off"
+        [formGroup]="myForm"
+      >
+        <mat-form-field class="w-full mb-1">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="fName" />
+        </mat-form-field>
+        <mat-form-field class="w-full mb-1">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lName" />
+        </mat-form-field>
+        <mat-form-field class="w-full mb-1">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" />
+        </mat-form-field>
+        <mat-form-field class="w-full mb-1">
+          <mat-label>Phone</mat-label>
+          <input matInput formControlName="phone" />
+        </mat-form-field>
+        <mat-form-field class="w-full mb-3">
+          <mat-label>Start Date</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            formControlName="startDate"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="w-full mb-1">
+          <mat-label>Marital Status</mat-label>
+          <mat-select formControlName="maritalStatus">
+            <mat-option *ngFor="let status of maritalStatus" [value]="status">
+              {{ status }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-radio-group aria-label="Sex" formControlName="sex">
+          <label
+            for="fName"
+            class="bllock text-gray-500"
+            style="font-size: medium"
+            >Sex:</label
+          >
+          <mat-radio-button value="male">Male</mat-radio-button>
+          <mat-radio-button value="female">Female</mat-radio-button>
+        </mat-radio-group>
+
+        <div class="flex justify-between my-4">
+          <button
+            style="width: 75px"
+            mat-flat-button
+            color="warn"
+            (click)="onSave()"
+            [disabled]="myForm.invalid"
+          >
+            {{ titleAction === "Edit" ? "Update" : "Add" }}
+          </button>
+          <button
+            style="width: 75px"
+            mat-flat-button
+            color="basic"
+            routerLink="/employees/list"
+          >
+            Cancel
+          </button>
+        </div>
+
+        <!-- <div class="mb-4">
+          <label for="fName" class="bllock text-gray-700 uppercase font-bold"
+            >First Name</label
+          >
+          <input
+            type="text"
+            class="border-2 w-full p-2 rounded-lg mt-2 placeholder-gray-400"
+            id="fName"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="lName" class="bllock text-gray-700 uppercase font-bold"
+            >Last Name</label
+          >
+          <input
+            type="text"
+            class="border-2 w-full p-2 rounded-lg mt-2 placeholder-gray-400"
+            id="lName"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="email" class="bllock text-gray-700 uppercase font-bold"
+            >Email</label
+          >
+          <input
+            type="text"
+            class="border-2 w-full p-2 rounded-lg mt-2 placeholder-gray-400"
+            id="email"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="phone" class="bllock text-gray-700 uppercase font-bold"
+            >Phone Number</label
+          >
+          <input
+            type="text"
+            class="border-2 w-full p-2 rounded-lg mt-2 placeholder-gray-400"
+            id="phone"
+          />
+        </div>
+        <div class="mb-4">
+          <label
+            for="startDate"
+            class="bllock text-gray-700 uppercase font-bold"
+            >Start Date</label
+          >
+          <input
+            type="date"
+            class="border-2 w-full p-2 rounded-lg mt-2 placeholder-gray-400"
+            id="startDate"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="sex" class="bllock text-gray-700 uppercase font-bold"
+            >Sex</label
+          >
+          <input
+            type="text"
+            class="border-2 w-full p-2 rounded-lg mt-2 placeholder-gray-400"
+            id="sex"
+          />
+        </div>
+        <div class="mb-4">
+          <label
+            for="maritalStatus"
+            class="bllock text-gray-700 uppercase font-bold"
+            >Marital Status</label
+          >
+          <input
+            type="text"
+            class="border-2 w-full p-2 rounded-lg mt-2 placeholder-gray-400"
+            id="maritalStatus"
+          />
+        </div> -->
+      </form>
+    </div>
+  </div>
+  <!--
+  <h2>Form Valid: {{ myForm.valid }}</h2>
+  <h2>Form Status: {{ myForm.status }}</h2>
+  <h2>Form Pending: {{ myForm.pending }}</h2>
+  <h2>Form errors</h2>
+  <pre>{{ myForm.errors | json }}</pre>
+
+  <h5>first name</h5>
+  <pre>{{ myForm.controls["fName"].errors | json }}</pre>
+  <h5>last name</h5>
+  <pre>{{ myForm.controls["lName"].errors | json }}</pre>
+  <h5>Email</h5>
+  <pre>{{ myForm.controls["email"].errors | json }}</pre>
+
+  <h5>phone</h5>
+  <pre>{{ myForm.controls["phone"].errors | json }}</pre>
+
+  <h5>start date</h5>
+  <pre>{{ myForm.controls["startDate"].errors | json }}</pre>
+
+  <h5>sex</h5>
+  <pre>{{ myForm.controls["sex"].errors | json }}</pre>
+  <h5>marital status</h5>
+  <pre>{{ myForm.controls["maritalStatus"].errors | json }}</pre> -->
+</div>
