@@ -71,13 +71,20 @@ export class EmployeeService {
     return this.listOfEmployees[index];
   }
 
+  // editEmployee(employee: Employee, index: number) {
+  //   this.listOfEmployees[index].fName = employee.fName;
+  //   this.listOfEmployees[index].lName = employee.lName;
+  //   this.listOfEmployees[index].email = employee.email;
+  //   this.listOfEmployees[index].phone = employee.phone;
+  //   this.listOfEmployees[index].startDate = employee.startDate;
+  //   this.listOfEmployees[index].sex = employee.sex;
+  //   this.listOfEmployees[index].maritalStatus = employee.maritalStatus;
+  // }
+
   editEmployee(employee: Employee, index: number) {
-    this.listOfEmployees[index].fName = employee.fName;
-    this.listOfEmployees[index].lName = employee.lName;
-    this.listOfEmployees[index].email = employee.email;
-    this.listOfEmployees[index].phone = employee.phone;
-    this.listOfEmployees[index].startDate = employee.startDate;
-    this.listOfEmployees[index].sex = employee.sex;
-    this.listOfEmployees[index].maritalStatus = employee.maritalStatus;
+    this.listOfEmployees[index] = {
+      ...this.listOfEmployees[index],
+      ...employee,
+    };
   }
 }
