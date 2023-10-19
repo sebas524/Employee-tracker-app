@@ -32,12 +32,12 @@ export class EmployeeEditComponent implements OnInit {
   }
 
   public myForm: FormGroup = this.fb.group({
-    fName: ['sebas', [Validators.required, Validators.maxLength(15)], []],
-    lName: ['velez', [Validators.required], []],
-    email: ['sebas@gmail.com', [Validators.required], []],
-    phone: ['213203928', [Validators.required], []],
+    fName: ['', [Validators.required, Validators.maxLength(15)], []],
+    lName: ['', [Validators.required], []],
+    email: ['', [Validators.required], []],
+    phone: ['', [Validators.required], []],
     startDate: ['', [Validators.required], []],
-    sex: ['male', [Validators.required], []],
+    sex: ['', [Validators.required], []],
     maritalStatus: ['', [Validators.required], []],
   });
 
