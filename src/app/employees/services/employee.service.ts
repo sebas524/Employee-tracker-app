@@ -9,7 +9,7 @@ export class EmployeeService {
     {
       fName: 'john',
       lName: 'doe',
-      email: 'john@gmail.com',
+      email: 'johndoe@gmail.com',
       maritalStatus: 'single',
       phone: 3232321211,
       sex: 'male',
@@ -18,10 +18,10 @@ export class EmployeeService {
     {
       fName: 'jane',
       lName: 'doe',
-      email: 'mike@gmail.com',
+      email: 'janedoe@gmail.com',
       maritalStatus: 'single',
       phone: 3212321211,
-      sex: 'male',
+      sex: 'female',
       startDate: new Date(),
     },
   ];
